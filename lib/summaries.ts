@@ -1,3 +1,4 @@
+import { auth } from "@clerk/nextjs/server";
 import { getDbConnection } from "./db";
 
 export async function getSummaries(userId:string) {
@@ -7,6 +8,10 @@ export async function getSummaries(userId:string) {
 }
 
 export async function getSummaryById(id:string){
+    
+    const authObj = await auth();
+    const userId = authObj.userId
+    
     try {
         const sql = await getDbConnection();
         const [summary] = await sql`SELECT 
@@ -19,7 +24,7 @@ export async function getSummaryById(id:string){
         created_at, 
         updated_at, 
         file_name, 
-        LENGTH(summary_text) - LENGTH(REPLACE(summary_text,' ','')) + 1 as word_count FROM pdf_summaries WHERE id=${id}`; 
+        LENGTH(summary_text) - LENGTH(REPLACE(summary_text,' ','')) + 1 as word_count FROM pdf_summaries WHERE id=${id} AND user_id=${userId}`; 
 
         return summary;
     } catch (error) {

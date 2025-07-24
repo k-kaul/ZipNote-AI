@@ -5,7 +5,6 @@ import SummaryHeader from "@/components/summaries/summary-header";
 import SummaryViewer from "@/components/summaries/summary-viewer";
 import { getSummaryById } from "@/lib/summaries";
 import { FileText } from "lucide-react";
-import { notFound } from "next/navigation";
 
 export default async function SummaryPage(props: {
     params: Promise<{id:string}>
@@ -13,11 +12,16 @@ export default async function SummaryPage(props: {
 
     const params = await props.params;
     const id = params.id;
+    console.log(id)
 
     const summary = await getSummaryById(id);
 
     if(!summary){
-        notFound();
+        return <div>
+            <div className="flex items-center justify-center h-screen">
+                <h1>Not Found!</h1>
+            </div>
+        </div>
     }
 
     const {title, summary_text, file_name, word_count, created_at, original_file_url} = summary;
