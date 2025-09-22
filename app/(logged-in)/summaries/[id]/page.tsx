@@ -12,7 +12,6 @@ export default async function SummaryPage(props: {
 
     const params = await props.params;
     const id = params.id;
-    console.log(id)
 
     const summary = await getSummaryById(id);
 
