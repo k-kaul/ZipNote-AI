@@ -16,7 +16,6 @@ export default async function DashboardPage() {
   const user = await currentUser();
     const userEmail = user?.emailAddresses[0].emailAddress || '';
     const userId = user?.id;
-    console.log(userId);
 
   if(!userId){
     return redirect('/sign-in')
@@ -25,6 +24,7 @@ export default async function DashboardPage() {
   const {hasReachedUploadLimit, uploadLimit} = await reachedUploadLimit(userEmail)
 
   const summaries = await getSummaries(userId);  
+  
     return (
     <main className="min-h-screen">
       <BgGradient className="from-amber-400 via-red-400 to-amber-400"/>
