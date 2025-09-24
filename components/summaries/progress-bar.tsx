@@ -13,11 +13,11 @@ export default function ProgressBar({
         {sections.map((_,index)=> (
             <div
                 key={index} 
-                className="h-1.5 flex-1 rounded-full bg-rose-500/10 overflow-hidden">
+                className="h-1 flex-1 rounded-full bg-slate-100/90 overflow-hidden">
                 <div
                     
                     className={cn(
-                        'h-full bg-linear-to-r from-gray-500 to-rose-600 transition-all duration-500', 
+                        'h-full bg-linear-to-r from-slate-100 to-slate-600 transition-all duration-500', 
                         index === currentSection ? 'w-full' : currentSection > index ? 'w-full opacity-10': 'w-0'
                     )}
                 />
