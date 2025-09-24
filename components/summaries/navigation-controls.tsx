@@ -24,11 +24,11 @@ export default function NavigationControls({
                 onClick={onPrevious}
                 disabled={currentSection === 0}
                 className={cn(
-                    'rounded-full w-12 h-12 transition-all duration-200 bg-linear-to-br from-rose-500 to-rose-600 backdrop-blur-xs border border-rose-500/10', 
-                    currentSection === 0 ? 'opacity-50' : 'hover:ng-rose-500/20'
+                    'rounded-2xl w-12 h-12 transition-all duration-200 bg-transparent backdrop-blur-xs border border-slate-500/10', 
+                    currentSection === 0 ? 'opacity-50' : 'hover:bg-slate-400/20'
                 )}
                 >
-                    <ChevronLeft className="h-6 w-6 text-white"/>
+                    <ChevronLeft className="h-6 w-6 text-black"/>
             </Button>
             <div className="flex gap-2">
                 {Array.from({length: totalSections}).map((_,index) => (
@@ -36,8 +36,8 @@ export default function NavigationControls({
                         key={index}
                         onClick={()=> onSectionSelect(index)}
                         className={cn(
-                            'w-2 h-2 rounded-full transition-all duration-300',
-                            currentSection === index ? 'bg-linear-to-r from-rose-500 to-rose-600' : 'bg-rose-500/20 hover:bg-rose-500/30' 
+                            'w-5 h-1 rounded-full transition-all duration-300 bg-transparent',
+                            currentSection === index ? 'bg-slate-500' : 'bg-slate-500/20 hover:bg-slate-500/30' 
                         )}  
                     />
                 ))
@@ -50,11 +50,11 @@ export default function NavigationControls({
                 onClick={onNext}
                 disabled={currentSection === totalSections -1 }
                 className={cn(
-                    'rounded-full w-12 h-12 transition-all duration-200 bg-linear-to-br from-rose-500 to-rose-600 backdrop-blur-xs border border-rose-500/10',
-                    currentSection === totalSections - 1 ? 'opacity-50' : 'hover:bg-rose-500/20' 
+                    'rounded-2xl w-12 h-12 transition-all duration-200 bg-transparent backdrop-blur-xs border border-slate-500/10', 
+                    currentSection === totalSections - 1 ? 'opacity-50' : 'hover:bg-slate-400/20' 
                 )}
                 >
-                    <ChevronRight className="h-6 w-6 text-white"/>
+                    <ChevronRight className="h-6 w-6 text-black"/>
             </Button>
         </div>      
     </div>
