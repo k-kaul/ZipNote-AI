@@ -72,5 +72,3 @@ npm install
 | **Database**         | NeonDB (PostgreSQL)                               |
 | **Payments**         | Stripe (with webhooks)                            |
 | **Language & Tools** | TypeScript, Vercel (deployment), ESLint, Prettier |
-
-[MIT](https://choosealicense.com/licenses/mit/)
