@@ -32,7 +32,7 @@ export default function SummaryViewer({summary, className}: {summary:string, cla
         .map(parseSection);
 
   return (
-    <Card className={cn("relative px-2 w-3/4 overflow-hidden bg-linear-to-br from background via-background/95 to-rose-500/5 backdrop-blur-lg shadow-2xl rounded-3xl border border-rose-500/10", className)}>
+    <Card className={cn("relative px-2 w-3/4 overflow-hidden bg-linear-to-br from background via-background/95 to-slate-500/5 backdrop-blur-lg shadow-2xl rounded-2xl border border-slate-500/10", className)}>
         <ProgressBar sections={sections} currentSection={currentSection}/>
         <MotionDiv key={currentSection} 
             initial={{opacity:0}}
